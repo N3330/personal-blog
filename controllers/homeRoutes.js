@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment } = require('../models');
 
 // Render the home page
 router.get('/', (req, res) => {
@@ -49,7 +49,7 @@ router.get('/post/:id', (req, res) => {
             attributes: [
                 'id',
                 'title',
-                'content',
+                'body',
                 'created_at'
             ],
             include: [{
