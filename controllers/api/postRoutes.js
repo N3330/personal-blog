@@ -9,4 +9,10 @@ router.post('/', withAuth, (req, res) => {
     .catch(err => res.json(err))
 })
 
+router.delete('/:id', withAuth, (req, res) => {
+    Post.destroy({where: { id:req.params.id }})
+    .then(postData => res.json(postData))
+    .catch(err => res.json(err))
+})
+
 module.exports = router 
